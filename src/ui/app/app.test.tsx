@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { App } from './app';
+import { App } from './app.component';
 import { APP_STORE_MOCK } from '../store/app.store.mock';
 import { SHOWS_SERVICE_MOCK } from '../../services/shows.service.mock';
 
