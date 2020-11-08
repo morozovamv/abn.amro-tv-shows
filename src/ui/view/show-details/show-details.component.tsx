@@ -43,7 +43,9 @@ export const ShowDetails = memo((props: ShowDetailsProps) => {
 											))}
 										</div>
 										<img src={show.image.medium} alt={show.name} />
-										<div dangerouslySetInnerHTML={{ __html: show.summary }} />
+										{show.summary !== null && (
+											<div dangerouslySetInnerHTML={{ __html: show.summary }} />
+										)}
 									</div>
 								),
 							),
