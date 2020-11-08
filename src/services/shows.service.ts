@@ -5,10 +5,14 @@ import { pipe } from 'fp-ts/lib/function';
 import { RemoteData } from '@devexperts/remote-data-ts';
 import { liveData } from '@devexperts/rx-utils/dist/live-data.utils';
 import { ShowsRepository } from '../data/shows.repository';
+import { array, option } from 'fp-ts';
+import { Option } from 'fp-ts/lib/Option';
+import { ShowModel } from '../domain/show.model';
 
 export interface ShowsService {
-	readonly shows: Observable<RemoteData<Error, Array<{ name: string; id: number; genres: Array<string> }>>>;
+	readonly shows: Observable<RemoteData<Error, Array<ShowModel>>>;
 	readonly genres: Observable<RemoteData<Error, Array<string>>>;
+	readonly getShowById: (showId: Option<number>) => Observable<RemoteData<Error, Option<ShowModel>>>;
 }
 
 export interface NewShowsService {
@@ -34,6 +38,22 @@ export const newShowsService = context.combine(
 			}),
 		);
 
-		return newSink({ shows, genres }, shows);
+		const getShowById = (showId: Option<number>) =>
+			pipe(
+				shows,
+				liveData.map((shows) =>
+					pipe(
+						shows,
+						array.findFirst((show) =>
+							pipe(
+								showId,
+								option.exists((showId) => showId === show.id),
+							),
+						),
+					),
+				),
+			);
+
+		return newSink({ shows, genres, getShowById }, shows);
 	},
 );

@@ -1,18 +1,33 @@
 import { context } from '@devexperts/rx-utils/dist/context2.utils';
-import React, { memo } from 'react';
+import React, { Fragment, memo } from 'react';
 import { GenreSelectorContainer } from '../view/genre-selector/genre-selector.container';
 import { ShowsListContainer } from '../view/shows-list/shows-list.container';
+import { ShowDetailsContainer } from '../view/show-details/show-details.container';
+import { Option } from 'fp-ts/lib/Option';
+import { option } from 'fp-ts';
+
+interface AppProps {
+	readonly selectedShowId: Option<number>;
+}
 
 export const App = context.combine(
 	ShowsListContainer,
 	GenreSelectorContainer,
-	(ShowsListContainer, GenreSelectorContainer) =>
-		memo(() => {
+	ShowDetailsContainer,
+	(ShowsListContainer, GenreSelectorContainer, ShowDetailsContainer) =>
+		memo((props: AppProps) => {
 			return (
 				<div>
 					<h1>ABN.AMRO TA</h1>
-					<GenreSelectorContainer />
-					<ShowsListContainer />
+					{option.isNone(props.selectedShowId) ? (
+						<Fragment>
+							<GenreSelectorContainer />
+							<ShowsListContainer />
+						</Fragment>
+					) : (
+						// TODO: use router
+						<ShowDetailsContainer />
+					)}
 				</div>
 			);
 		}),
