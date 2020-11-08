@@ -4,8 +4,13 @@ import { App } from './app.component';
 import { APP_STORE_MOCK } from '../../store/app.store.mock';
 import { SHOWS_SERVICE_MOCK } from '../../../services/shows.service.mock';
 import { option } from 'fp-ts';
+import { SEARCH_REPOSITORY_MOCK } from '../../../data/search.repository.mock';
 
-const appSink = App({ appStore: APP_STORE_MOCK, showsService: SHOWS_SERVICE_MOCK });
+const appSink = App({
+	appStore: APP_STORE_MOCK,
+	showsService: SHOWS_SERVICE_MOCK,
+	searchRepository: SEARCH_REPOSITORY_MOCK,
+});
 appSink.effects.subscribe();
 const AppComponent = appSink.value;
 
