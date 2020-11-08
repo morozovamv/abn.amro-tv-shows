@@ -31,7 +31,10 @@ export const App = context.combine(
 							<ShowsListContainer />
 						</Fragment>
 					) : (
-						// TODO: use router
+						// TODO:
+						// 1. use router
+						// 2. change search algorithm:
+						// - search in app store, then, if there is no the show, call show endpoint
 						<ShowDetailsContainer />
 					)}
 				</div>
