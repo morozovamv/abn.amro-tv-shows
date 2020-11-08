@@ -2,11 +2,11 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { context } from '@devexperts/rx-utils/dist/context2.utils';
 import { pipe } from 'fp-ts/lib/function';
-import { httpRequest } from '../api/http-client';
+import { httpRequest } from '../../api/http-client';
 import { RemoteData } from '@devexperts/remote-data-ts';
 import * as remoteData from '@devexperts/remote-data-ts';
 import { validateSearch } from './search.model';
-import { SearchModel } from '../domain/search.model';
+import { SearchModel } from '../../domain/search.model';
 
 export interface SearchRepository {
 	readonly searchShows: (query: string) => Observable<RemoteData<Error, SearchModel>>;

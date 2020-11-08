@@ -1,4 +1,4 @@
-import { ShowModel } from '../domain/show.model';
+import { ShowModel } from '../../domain/show.model';
 
 export const validateImage = (image: any): image is ShowModel['image'] =>
 	image instanceof Object &&

@@ -3,7 +3,7 @@ import { context } from '@devexperts/rx-utils/dist/context2.utils';
 import { pipe } from 'fp-ts/lib/function';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { shareReplay, switchMap } from 'rxjs/operators';
-import { SearchRepository } from '../../../data/search.repository';
+import { SearchRepository } from '../../../data/search/search.repository';
 import { SearchModel } from '../../../domain/search.model';
 
 export interface SearchViewModel {

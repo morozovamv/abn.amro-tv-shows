@@ -1,5 +1,5 @@
-import { ShowModel } from '../domain/show.model';
-import { validateShow } from './shows.model';
+import { ShowModel } from '../../domain/show.model';
+import { validateShow } from '../shows/shows.model';
 
 // TODO: add search score
 export const validateSearch = (searchResult: any): searchResult is { show: ShowModel }[] =>

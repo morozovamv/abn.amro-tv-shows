@@ -4,7 +4,7 @@ import { newSink, Sink } from '@devexperts/rx-utils/dist/sink2.utils';
 import { pipe } from 'fp-ts/lib/function';
 import { RemoteData } from '@devexperts/remote-data-ts';
 import { liveData } from '@devexperts/rx-utils/dist/live-data.utils';
-import { ShowsRepository } from '../data/shows.repository';
+import { ShowsRepository } from '../data/shows/shows.repository';
 import { array, option } from 'fp-ts';
 import { Option } from 'fp-ts/lib/Option';
 import { ShowModel } from '../domain/show.model';
