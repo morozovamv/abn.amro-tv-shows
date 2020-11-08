@@ -17,7 +17,10 @@ export const ShowsList = memo((props: ShowsListProps) => {
 			{/* TODO: implement renderer for remote data */}
 			{remoteData.isSuccess(props.shows)
 				? props.shows.value.map((show) => (
-						<div key={show.id} onClick={() => props.selectShow(option.some(show.id))}>
+						<div
+							className={css.imageContainer}
+							key={show.id}
+							onClick={() => props.selectShow(option.some(show.id))}>
 							<img className={css.image} src={show.image.medium} alt={show.name} />
 						</div>
 				  ))

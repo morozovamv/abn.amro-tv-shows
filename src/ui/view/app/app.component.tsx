@@ -22,10 +22,12 @@ export const App = context.combine(
 			return (
 				<div className={css.container}>
 					<h1 className={css.title}>ABN.AMRO TA</h1>
-					<SearchContainer />
 					{option.isNone(props.selectedShowId) ? (
 						<Fragment>
-							<GenreSelectorContainer />
+							<div className={css.controllers}>
+								<SearchContainer />
+								<GenreSelectorContainer />
+							</div>
 							<ShowsListContainer />
 						</Fragment>
 					) : (

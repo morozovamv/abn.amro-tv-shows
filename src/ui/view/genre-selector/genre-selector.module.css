@@ -21,3 +21,18 @@
 	color: #fff;
 	border-color: #fff;
 }
+
+@media screen and (max-width: 530px) {
+	.container {
+		justify-content: space-between;
+		width: 100%;
+	}
+
+	.input {
+		flex: 1;
+	}
+
+	.select {
+		flex: 1;
+	}
+}

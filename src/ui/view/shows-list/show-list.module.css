@@ -28,6 +28,11 @@
 	}
 }
 
+.imageContainer:hover {
+	transition: transform 0.3s;
+	transform: scale(1.02);
+}
+
 .image {
 	display: block;
 	width: 100%;
