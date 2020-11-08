@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 import { BootstrapContainer } from './ui/bootstrap/bootstrap.container';
 import { useSink } from './utils/use-sink';
+import './index.css';
 
 const env = {};
 

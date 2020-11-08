@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import { RemoteData } from '@devexperts/remote-data-ts';
 import * as remoteData from '@devexperts/remote-data-ts';
+import css from './genre-selector.module.css';
 
 interface GenreSelectorProps {
 	readonly genres: RemoteData<Error, Array<string>>;
@@ -11,10 +12,12 @@ interface GenreSelectorProps {
 export const GenreSelector = memo((props: GenreSelectorProps) => {
 	// TODO: setSelectedGenre to useCallback
 	return (
-		<div>
-			<h2>Genres</h2>
+		<div className={css.container}>
+			<div className={css.title}>Genre:</div>
+			{/* TODO: use fold */}
 			{remoteData.isSuccess(props.genres) ? (
 				<select
+					className={css.select}
 					name="genres"
 					id="genres"
 					value={props.selectedGenre}

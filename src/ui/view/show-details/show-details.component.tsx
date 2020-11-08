@@ -5,6 +5,7 @@ import React, { memo } from 'react';
 import { ShowModel } from '../../../domain/show.model';
 import { pipe } from 'fp-ts/lib/function';
 import { option } from 'fp-ts';
+import css from './show-details.module.css';
 
 interface ShowDetailsProps {
 	show: RemoteData<Error, Option<ShowModel>>;
@@ -14,7 +15,9 @@ interface ShowDetailsProps {
 export const ShowDetails = memo((props: ShowDetailsProps) => {
 	return (
 		<div>
-			<button onClick={props.goBackToShows}>&larr; Back</button>
+			<button className={css.button} onClick={props.goBackToShows}>
+				&larr; Back
+			</button>
 			{pipe(
 				props.show,
 				remoteData.fold(
@@ -31,8 +34,14 @@ export const ShowDetails = memo((props: ShowDetailsProps) => {
 								() => <div>No show data</div>,
 								(show) => (
 									<div>
-										<div>{show.name}</div>
-										<div>{show.genres}</div>
+										<h2 className={css.title}>{show.name}</h2>
+										<div>
+											{show.genres.map((genre, index) => (
+												<span key={genre}>
+													{index === show.genres.length - 1 ? genre : genre + ', '}
+												</span>
+											))}
+										</div>
 										<img src={show.image.medium} alt={show.name} />
 										<div dangerouslySetInnerHTML={{ __html: show.summary }} />
 									</div>

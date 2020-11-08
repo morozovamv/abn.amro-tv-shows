@@ -1,0 +1,23 @@
+.container {
+	display: flex;
+	margin-bottom: 12px;
+}
+
+.title {
+	margin-right: 8px;
+	font-size: 1.5em;
+}
+
+.select {
+	font-size: 1.5em;
+	border-radius: 4px;
+	background-color: #141414;
+	color: #999;
+	font-family: 'Times New Roman', Times, serif;
+	outline: none;
+}
+
+.select:hover {
+	color: #fff;
+	border-color: #fff;
+}

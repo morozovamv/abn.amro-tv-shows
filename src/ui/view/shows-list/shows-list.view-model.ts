@@ -5,11 +5,12 @@ import { array } from 'fp-ts';
 import { pipe } from 'fp-ts/lib/function';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { ShowModel } from '../../../domain/show.model';
 import { ShowsService } from '../../../services/shows.service';
 import { AppStore } from '../../store/app.store';
 
 export interface ShowsList {
-	readonly shows: Observable<RemoteData<Error, Array<{ name: string; id: number }>>>;
+	readonly shows: Observable<RemoteData<Error, Array<ShowModel>>>;
 }
 
 export interface NewShowsListViewModel {

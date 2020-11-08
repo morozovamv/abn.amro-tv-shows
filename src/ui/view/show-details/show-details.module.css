@@ -1,0 +1,23 @@
+.button {
+	font-size: 1.5em;
+	border-radius: 4px;
+	background-color: #141414;
+	color: #999;
+	font-family: 'Times New Roman', Times, serif;
+	outline: none;
+	border-width: 1px;
+	border-style: solid;
+}
+
+.button:hover {
+	color: #fff;
+	border-color: #fff;
+}
+
+.title {
+	margin: 0 0 10px;
+}
+
+.genre {
+	margin-right: 7px;
+}

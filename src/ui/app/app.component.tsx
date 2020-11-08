@@ -5,6 +5,7 @@ import { ShowsListContainer } from '../view/shows-list/shows-list.container';
 import { ShowDetailsContainer } from '../view/show-details/show-details.container';
 import { Option } from 'fp-ts/lib/Option';
 import { option } from 'fp-ts';
+import css from './app.module.css';
 
 interface AppProps {
 	readonly selectedShowId: Option<number>;
@@ -17,8 +18,8 @@ export const App = context.combine(
 	(ShowsListContainer, GenreSelectorContainer, ShowDetailsContainer) =>
 		memo((props: AppProps) => {
 			return (
-				<div>
-					<h1>ABN.AMRO TA</h1>
+				<div className={css.container}>
+					<h1 className={css.title}>ABN.AMRO TA</h1>
 					{option.isNone(props.selectedShowId) ? (
 						<Fragment>
 							<GenreSelectorContainer />
