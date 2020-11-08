@@ -2,7 +2,7 @@ import * as remoteData from '@devexperts/remote-data-ts';
 import { context } from '@devexperts/rx-utils/dist/context2.utils';
 import { Option } from 'fp-ts/lib/Option';
 import { createElement, memo, useCallback, useMemo } from 'react';
-import { useObservable } from '../../../utils/use-observable';
+import { useObservable } from '../../../utils/use-observable.utils';
 import { AppStore } from '../../store/app.store';
 import { ShowsList } from './shows-list.component';
 import { newShowsListViewModel } from './shows-list.view-model';

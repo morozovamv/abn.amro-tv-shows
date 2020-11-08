@@ -3,8 +3,8 @@ import { createElement, memo, useMemo } from 'react';
 import { App } from './app.component';
 import { newShowsService } from '../../../services/shows.service';
 import { newAppStore } from '../../store/app.store';
-import { useSink } from '../../../utils/use-sink';
-import { useBehaviorSubject } from '../../../utils/use-behavior-subject';
+import { useSink } from '../../../utils/use-sink.utils';
+import { useBehaviorSubject } from '../../../utils/use-behavior-subject.utils';
 
 export const AppContainer = context.combine(
 	context.defer(App, 'showsService', 'appStore'),

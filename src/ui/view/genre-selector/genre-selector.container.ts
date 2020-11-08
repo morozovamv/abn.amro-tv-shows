@@ -1,7 +1,7 @@
 import * as remoteData from '@devexperts/remote-data-ts';
 import { context } from '@devexperts/rx-utils/dist/context2.utils';
 import { createElement, memo, useMemo } from 'react';
-import { useObservable } from '../../../utils/use-observable';
+import { useObservable } from '../../../utils/use-observable.utils';
 import { GenreSelector } from './genre-selector.component';
 import { newGenreSelectorViewModel } from './genre-selector.view-model';
 
