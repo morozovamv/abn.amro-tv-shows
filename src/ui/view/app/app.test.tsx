@@ -1,8 +1,8 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { App } from './app.component';
-import { APP_STORE_MOCK } from '../store/app.store.mock';
-import { SHOWS_SERVICE_MOCK } from '../../services/shows.service.mock';
+import { APP_STORE_MOCK } from '../../store/app.store.mock';
+import { SHOWS_SERVICE_MOCK } from '../../../services/shows.service.mock';
 import { option } from 'fp-ts';
 
 const appSink = App({ appStore: APP_STORE_MOCK, showsService: SHOWS_SERVICE_MOCK });
