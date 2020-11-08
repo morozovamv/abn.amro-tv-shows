@@ -9,12 +9,12 @@ import { ShowModel } from '../../../domain/show.model';
 import { ShowsService } from '../../../services/shows.service';
 import { AppStore } from '../../store/app.store';
 
-export interface ShowsList {
+export interface ShowsListViewModel {
 	readonly shows: Observable<RemoteData<Error, Array<ShowModel>>>;
 }
 
 export interface NewShowsListViewModel {
-	(): ShowsList;
+	(): ShowsListViewModel;
 }
 
 export const newShowsListViewModel = context.combine(
