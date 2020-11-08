@@ -22,7 +22,7 @@ export const ShowDetails = memo((props: ShowDetailsProps) => {
 				props.show,
 				remoteData.fold(
 					() => <div></div>,
-					() => <div>'loading ...'</div>,
+					() => <div>loading ...</div>,
 					(error) => {
 						console.error(error);
 						return <div>{error.message}</div>;
