@@ -8,6 +8,7 @@ import { ShowsRepository } from '../data/shows/shows.repository';
 import { array, option } from 'fp-ts';
 import { Option } from 'fp-ts/lib/Option';
 import { ShowModel } from '../domain/show.model';
+import { getUnique } from '../utils/array.utils';
 
 export interface ShowsService {
 	readonly shows: Observable<RemoteData<Error, Array<ShowModel>>>;
@@ -26,16 +27,7 @@ export const newShowsService = context.combine(
 
 		const genres = pipe(
 			shows,
-			liveData.map((shows) => {
-				// TODO: move to utils
-				let uniqGenres = new Set<string>();
-				shows
-					.map((show) => show.genres)
-					.flat()
-					.forEach((genre) => uniqGenres.add(genre));
-
-				return Array.from(uniqGenres);
-			}),
+			liveData.map((shows) => getUnique(shows.map((show) => show.genres).flat())),
 		);
 
 		const getShowById = (showId: Option<number>) =>
